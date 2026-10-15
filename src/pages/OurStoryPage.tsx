@@ -1,187 +1,304 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IMAGES } from "../data/images";
 import { VegBadge } from "../components/VegBadge";
-import { Heart, Sparkles, Coffee, ArrowRight } from "lucide-react";
+import { CakesCelebrationBanner } from "../components/CakesCelebrationBanner";
+import {
+  Croissant,
+  Coffee,
+  Heart,
+  ArrowRight,
+  Store,
+  Lightbulb,
+  ChefHat,
+  Smile,
+} from "lucide-react";
 
 export const OurStoryPage: React.FC = () => {
   return (
-    <div className="pt-24 sm:pt-28 pb-24 bg-[#F8F5ED] min-h-screen">
-      {/* Editorial Header */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-12 sm:mb-16">
-        <span className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] uppercase text-[#078F96] block mb-2">
-          About Us
-        </span>
-        <h1 className="font-display text-4xl sm:text-6xl font-normal text-[#064F50] tracking-tight mb-4">
-          OUR STORY
-        </h1>
-        <div className="w-12 h-0.5 bg-[#E8C45A] mx-auto mb-4" />
-        <p className="font-serif italic text-lg sm:text-2xl text-[#594235] max-w-xl mx-auto leading-relaxed">
-          &ldquo;A little corner made for honest food, warm bakes, and easy conversations.&rdquo;
-        </p>
-      </section>
-
-      {/* Main Feature Image with Editorial Caption */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 sm:mb-20">
-        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#E8DFD3] bg-[#EFE9DE]">
-          <img
-            src={IMAGES.story.interiorWindow}
-            alt="Warm sunlit corner at The Classic Crush Cafe"
-            className="w-full h-[380px] sm:h-[520px] object-cover object-center"
-            loading="eager"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-          <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4 text-white">
-            <div>
-              <span className="text-xs uppercase tracking-[0.2em] text-[#E8C45A] font-semibold block mb-1">
-                The Neighbourhood Gathering
+    <div className="bg-[#F5EFEB] text-[#162820]">
+      {/* ==================================================
+          1. ABOUT US HERO (Matching PDF Page 2)
+          ================================================== */}
+      <section className="py-14 sm:py-20 lg:py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left: Headline & Introduction */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <span className="text-[10px] sm:text-xs font-semibold tracking-[0.32em] uppercase text-[#6E776F] block">
+                ABOUT US
               </span>
-              <p className="font-display text-xl sm:text-2xl font-normal max-w-md">
-                Where good food brings people together every single day.
+
+              <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal text-[#0F382A] tracking-tight leading-[1.08]">
+                A Little<br />
+                Place With a<br />
+                <span className="italic font-light">Big Heart.</span>
+              </h1>
+
+              <div className="w-12 h-0.5 bg-[#C99742]" />
+
+              <p className="text-sm sm:text-base md:text-lg text-[#162820]/80 font-light leading-relaxed max-w-lg">
+                The Classic Crush is a bakery &amp; café built on a simple idea — that good food can bring people closer. It&apos;s a cosy corner for fresh bakes, great coffee and everyday moments that feel a little more special.
               </p>
+
+              <div className="pt-2">
+                <Link
+                  to="/menu"
+                  className="inline-flex items-center gap-2.5 px-7 py-3 rounded-full bg-[#0F382A] text-[#FAF6F0] hover:bg-[#184D3B] text-xs font-semibold uppercase tracking-[0.16em] transition-all duration-300 shadow-sm hover:shadow-md group"
+                >
+                  <span>Explore Menu</span>
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
             </div>
-            <div className="inline-flex items-center gap-2 bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-xs">
-              <VegBadge size="sm" />
-              <span>100% Pure Vegetarian &amp; Eggless</span>
+
+            {/* Right: Arched Cafe Doorway Photo Frame (matching PDF Page 2) */}
+            <div className="lg:col-span-6 flex justify-center">
+              <div className="relative rounded-t-full rounded-b-2xl overflow-hidden shadow-2xl border-4 border-white bg-[#082118] w-full max-w-md aspect-4/5 sm:aspect-3/4">
+                <img
+                  src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80"
+                  alt="The Classic Crush charming cafe entrance with green exterior and warm lights"
+                  className="w-full h-full object-cover object-center transition-transform duration-1000 hover:scale-104"
+                  loading="eager"
+                />
+
+                {/* Aesthetic Floating Badge Overlays */}
+                <div className="absolute top-8 right-6 bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 text-[#D4A359] text-[10px] font-semibold tracking-widest uppercase">
+                  EST. 2024
+                </div>
+
+                <div className="absolute bottom-6 left-6 bg-black/60 backdrop-blur-md px-4 py-2 rounded-xl border border-white/20 text-white">
+                  <p className="font-serif italic text-xs sm:text-sm text-[#FAF6F0]">
+                    GOOD FOOD BETTER DAYS
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Editorial Story Body */}
-      <section className="max-w-3xl mx-auto px-6 space-y-10 text-[#594235] leading-relaxed font-light text-base sm:text-lg">
-        <div>
-          <h2 className="font-display text-2xl sm:text-3xl text-[#064F50] font-normal mb-4">
-            How it all started
+      {/* ==================================================
+          2. OUR BELIEF: GOOD FOOD BRINGS PEOPLE CLOSER (Matching PDF Page 2 Deep Green Section)
+          ================================================== */}
+      <section className="py-20 sm:py-28 bg-[#0F382A] text-[#FAF6F0] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left: Copy */}
+            <div className="lg:col-span-5 space-y-5 text-left">
+              <span className="text-[10px] sm:text-xs font-semibold tracking-[0.32em] uppercase text-[#D4A359] block">
+                OUR BELIEF
+              </span>
+
+              <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white tracking-tight leading-tight">
+                Good Food<br />Brings People Closer.
+              </h2>
+
+              <p className="text-sm sm:text-base text-[#FAF6F0]/80 font-light leading-relaxed max-w-md">
+                We believe honest ingredients, comforting flavours and a welcoming space can turn ordinary days into something special.
+              </p>
+
+              <div className="pt-2 flex items-center gap-2 text-xs text-[#D4A359]">
+                <VegBadge size="sm" />
+                <span>100% Pure Vegetarian &amp; Eggless Bakes</span>
+              </div>
+            </div>
+
+            {/* Right: 3 Portrait Food & Cafe Photos (matching PDF Page 2) */}
+            <div className="lg:col-span-7 grid grid-cols-3 gap-3.5 sm:gap-5">
+              <div className="rounded-xl sm:rounded-2xl overflow-hidden aspect-3/4 bg-[#3D271D] border border-white/15 shadow-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80"
+                  alt="Fresh artisan bakes from the morning oven"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-106"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="rounded-xl sm:rounded-2xl overflow-hidden aspect-3/4 bg-[#3D271D] border border-white/15 shadow-lg -translate-y-2 sm:-translate-y-4">
+                <img
+                  src="/dark-white-delight.jpg"
+                  alt="Signature chocolate cake and delights"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-106"
+                  loading="lazy"
+                />
+              </div>
+
+              <div className="rounded-xl sm:rounded-2xl overflow-hidden aspect-3/4 bg-[#3D271D] border border-white/15 shadow-lg">
+                <img
+                  src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80"
+                  alt="Handcrafted thick cold coffee and fresh beverages"
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-106"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          3. OUR STORY: FROM A SIMPLE IDEA TO A COSY CAFÉ (Matching PDF Page 2)
+          ================================================== */}
+      <section className="py-20 sm:py-28 bg-[#F5EFEB]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left: Coffee & Croissants Photography */}
+            <div className="lg:col-span-6">
+              <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border border-[#E2D9CC] bg-[#E8DFD1]">
+                <img
+                  src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=80"
+                  alt="Fresh buttery croissants and signature TCC coffee"
+                  className="w-full h-[360px] sm:h-[460px] object-cover transition-transform duration-700 hover:scale-103"
+                  loading="lazy"
+                />
+                <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#E2D9CC] text-xs font-semibold text-[#0F382A]">
+                  Baked Fresh Every Morning
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Story Details & 3 Values (matching PDF Page 2) */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <span className="text-[10px] sm:text-xs font-semibold tracking-[0.32em] uppercase text-[#6E776F] block">
+                OUR STORY
+              </span>
+
+              <h2 className="font-serif text-3xl sm:text-5xl font-normal text-[#0F382A] tracking-tight leading-tight">
+                From a Simple Idea<br />to a Cosy Café.
+              </h2>
+
+              <p className="text-sm sm:text-base text-[#162820]/80 font-light leading-relaxed">
+                The Classic Crush began with a simple love for baking, coffee and the little joys in between. What started as a personal passion has now grown into a space where people can slow down, enjoy good food and create warm memories.
+              </p>
+
+              {/* 3 Value Pillars (matching PDF Page 2) */}
+              <div className="grid grid-cols-3 gap-4 pt-4 border-t border-[#E2D9CC]">
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-10 h-10 rounded-full bg-[#E8DFD1]/60 flex items-center justify-center text-[#0F382A] mb-2">
+                    <Croissant className="w-5 h-5 stroke-[1.5]" />
+                  </div>
+                  <span className="font-serif text-sm font-semibold text-[#0F382A]">
+                    Freshly Baked
+                  </span>
+                </div>
+
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-10 h-10 rounded-full bg-[#E8DFD1]/60 flex items-center justify-center text-[#0F382A] mb-2">
+                    <Coffee className="w-5 h-5 stroke-[1.5]" />
+                  </div>
+                  <span className="font-serif text-sm font-semibold text-[#0F382A]">
+                    Great Coffee
+                  </span>
+                </div>
+
+                <div className="flex flex-col items-center text-center">
+                  <div className="w-10 h-10 rounded-full bg-[#E8DFD1]/60 flex items-center justify-center text-[#0F382A] mb-2">
+                    <Heart className="w-5 h-5 stroke-[1.5]" />
+                  </div>
+                  <span className="font-serif text-sm font-semibold text-[#0F382A]">
+                    A Cosy Space
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          4. OUR JOURNEY (Matching PDF Page 2 Bottom 4-Stage Horizontal Flow)
+          ================================================== */}
+      <section className="py-20 sm:py-28 bg-[#0F382A] text-[#FAF6F0] relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <span className="text-[10px] sm:text-xs font-semibold tracking-[0.32em] uppercase text-[#D4A359] block mb-3">
+            OUR JOURNEY
+          </span>
+
+          <h2 className="font-serif text-3xl sm:text-5xl font-normal text-white tracking-tight mb-14">
+            How We Grew
           </h2>
-          <p>
-            The Classic Crush was born out of a very simple, everyday realization: college towns and neighbourhood streets are full of places to eat, but very few places where you feel truly welcome to sit back, catch up with friends, and enjoy genuine handcrafted comfort food without spending a small fortune.
-          </p>
-          <p className="mt-4">
-            We wanted to build that exact place — a warm, welcoming vegetarian bakery and cafe where the smell of freshly baked puff pastry greets you at the door, the cold coffee is churned thick and honest, and chocolate cravings find their sweetest answer.
-          </p>
-        </div>
 
-        <div className="p-8 bg-[#FCFAF7] rounded-2xl border border-[#E8DFD3]">
-          <div className="flex items-center gap-2.5 mb-3">
-            <VegBadge size="md" />
-            <h3 className="font-display text-xl font-bold text-[#064F50]">
-              Our Pure Vegetarian Promise
-            </h3>
-          </div>
-          <p className="text-sm sm:text-base text-[#594235]/90 leading-relaxed font-light">
-            Every single item on our counter is strictly 100% vegetarian. All of our celebration cakes, chocolate pastries, and brownie cups are completely eggless, baked with fresh butter, wholesome flour, and rich cocoa. You never have to ask twice or check twice — you can order anything on the menu with complete peace of mind.
-          </p>
-        </div>
+          {/* 4 Process Cards with Illustrated Icons & Connecting Arrows */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 relative">
+            {/* Step 1 */}
+            <div className="bg-[#144434] rounded-2xl p-6 sm:p-7 border border-white/10 text-left flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-full bg-[#0F382A] border border-[#D4A359]/40 flex items-center justify-center text-[#D4A359] mb-5">
+                  <Lightbulb className="w-5 h-5" />
+                </div>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                  The Beginning
+                </h3>
+                <p className="text-xs sm:text-sm text-[#FAF6F0]/75 font-light leading-relaxed">
+                  A simple idea, a love for baking and coffee.
+                </p>
+              </div>
+              <span className="text-[10px] font-semibold text-[#D4A359] tracking-widest uppercase mt-6 block">
+                PHASE 01
+              </span>
+            </div>
 
-        <div>
-          <h2 className="font-display text-2xl sm:text-3xl text-[#064F50] font-normal mb-4">
-            Baked fresh, served warm
-          </h2>
-          <p>
-            We don&apos;t believe in pre-packed, frozen food warmed in a microwave. Our patties are baked golden and flaky every morning, our stone-crust pizzas are topped with fresh paneer and baked to order, and our momos are steamed hot when you ask for them.
-          </p>
-          <p className="mt-4">
-            It takes a few extra minutes, but that first warm, gooey bite makes all the difference.
-          </p>
-        </div>
-      </section>
+            {/* Step 2 */}
+            <div className="bg-[#144434] rounded-2xl p-6 sm:p-7 border border-white/10 text-left flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-full bg-[#0F382A] border border-[#D4A359]/40 flex items-center justify-center text-[#D4A359] mb-5">
+                  <ChefHat className="w-5 h-5" />
+                </div>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                  Small Steps
+                </h3>
+                <p className="text-xs sm:text-sm text-[#FAF6F0]/75 font-light leading-relaxed">
+                  From kitchen experiments to happy customers.
+                </p>
+              </div>
+              <span className="text-[10px] font-semibold text-[#D4A359] tracking-widest uppercase mt-6 block">
+                PHASE 02
+              </span>
+            </div>
 
-      {/* 3 Atmospheric Details Photography Grid */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 my-16 sm:my-20">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-          <div className="rounded-xl overflow-hidden border border-[#E8DFD3] bg-[#EFE9DE] group">
-            <div className="aspect-4/3 overflow-hidden">
-              <img
-                src={IMAGES.story.bakeryCounter}
-                alt="Fresh morning bakes and bakery counter"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
+            {/* Step 3 */}
+            <div className="bg-[#144434] rounded-2xl p-6 sm:p-7 border border-white/10 text-left flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-full bg-[#0F382A] border border-[#D4A359]/40 flex items-center justify-center text-[#D4A359] mb-5">
+                  <Store className="w-5 h-5" />
+                </div>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                  A Cosy Space
+                </h3>
+                <p className="text-xs sm:text-sm text-[#FAF6F0]/75 font-light leading-relaxed">
+                  Turning a dream into a café with a warm soul.
+                </p>
+              </div>
+              <span className="text-[10px] font-semibold text-[#D4A359] tracking-widest uppercase mt-6 block">
+                PHASE 03
+              </span>
             </div>
-            <div className="p-4 bg-white">
-              <h4 className="font-display font-bold text-base text-[#064F50]">Daily Morning Bakes</h4>
-              <p className="text-xs text-[#594235]/70 mt-1 font-light">Flaky puff patties and sweet pastries fresh out of the oven</p>
-            </div>
-          </div>
 
-          <div className="rounded-xl overflow-hidden border border-[#E8DFD3] bg-[#EFE9DE] group">
-            <div className="aspect-4/3 overflow-hidden">
-              <img
-                src={IMAGES.story.coffeePrep}
-                alt="Artisan coffee preparation"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-4 bg-white">
-              <h4 className="font-display font-bold text-base text-[#064F50]">Handcrafted Brews</h4>
-              <p className="text-xs text-[#594235]/70 mt-1 font-light">From steaming kadak chai to frothy thick cold coffees</p>
-            </div>
-          </div>
-
-          <div className="rounded-xl overflow-hidden border border-[#E8DFD3] bg-[#EFE9DE] group">
-            <div className="aspect-4/3 overflow-hidden">
-              <img
-                src={IMAGES.story.tableFriends}
-                alt="Friends enjoying food at cafe table"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                loading="lazy"
-              />
-            </div>
-            <div className="p-4 bg-white">
-              <h4 className="font-display font-bold text-base text-[#064F50]">Your Cozy Corner</h4>
-              <p className="text-xs text-[#594235]/70 mt-1 font-light">Made for study sessions, birthday treats, and everyday hangouts</p>
+            {/* Step 4 */}
+            <div className="bg-[#144434] rounded-2xl p-6 sm:p-7 border border-white/10 text-left flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-full bg-[#0F382A] border border-[#D4A359]/40 flex items-center justify-center text-[#D4A359] mb-5">
+                  <Smile className="w-5 h-5" />
+                </div>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-2">
+                  Today
+                </h3>
+                <p className="text-xs sm:text-sm text-[#FAF6F0]/75 font-light leading-relaxed">
+                  More good food, more better days with our community.
+                </p>
+              </div>
+              <span className="text-[10px] font-semibold text-[#D4A359] tracking-widest uppercase mt-6 block">
+                TODAY &amp; BEYOND
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Philosophy Pillars */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 border-t border-[#E8DFD3] pt-14">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 text-center sm:text-left">
-          <div className="space-y-2">
-            <div className="w-10 h-10 rounded-full bg-[#078F96]/10 flex items-center justify-center text-[#078F96] mx-auto sm:mx-0">
-              <Heart className="w-5 h-5" />
-            </div>
-            <h4 className="font-display font-bold text-lg text-[#064F50]">Honest &amp; Local</h4>
-            <p className="text-xs text-[#594235]/80 font-light leading-relaxed">
-              Student-friendly pricing without compromising on quality or hygiene.
-            </p>
-          </div>
-
-          <div className="space-y-2">
-            <div className="w-10 h-10 rounded-full bg-[#078F96]/10 flex items-center justify-center text-[#078F96] mx-auto sm:mx-0">
-              <Sparkles className="w-5 h-5" />
-            </div>
-            <h4 className="font-display font-bold text-lg text-[#064F50]">100% Vegetarian</h4>
-            <p className="text-xs text-[#594235]/80 font-light leading-relaxed">
-              Strictly eggless bakes and vegetarian savouries prepared in a clean kitchen.
-            </p>
-          </div>
-
-          <div className="space-y-2">
-            <div className="w-10 h-10 rounded-full bg-[#078F96]/10 flex items-center justify-center text-[#078F96] mx-auto sm:mx-0">
-              <Coffee className="w-5 h-5" />
-            </div>
-            <h4 className="font-display font-bold text-lg text-[#064F50]">Warm Hospitality</h4>
-            <p className="text-xs text-[#594235]/80 font-light leading-relaxed">
-              A welcoming smile, quick service, and a table that always feels like home.
-            </p>
-          </div>
-        </div>
-
-        {/* CTA to Menu */}
-        <div className="text-center mt-14">
-          <Link
-            to="/menu"
-            className="inline-flex items-center gap-2 px-8 py-3.5 bg-[#064F50] hover:bg-[#043839] text-[#F8F5ED] text-xs font-semibold uppercase tracking-[0.2em] rounded-full transition-all shadow-md"
-          >
-            <span>Explore What We Bake</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-      </section>
+      {/* ==================================================
+          5. BOTTOM CELEBRATION CAKES BANNER (Matching PDF Page 7)
+          ================================================== */}
+      <CakesCelebrationBanner />
     </div>
   );
 };

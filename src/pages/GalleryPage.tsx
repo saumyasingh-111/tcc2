@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { useData } from "../context/DataContext";
-import { X, ChevronLeft, ChevronRight, Eye } from "lucide-react";
+import { AwningStrip } from "../components/AwningStrip";
+import { CakesCelebrationBanner } from "../components/CakesCelebrationBanner";
+import { BotanicalSprig } from "../components/BotanicalSprig";
+import { X, ChevronLeft, ChevronRight, Eye, ArrowRight } from "lucide-react";
 
 export const GalleryPage: React.FC = () => {
   const { galleryItems } = useData();
@@ -12,12 +15,20 @@ export const GalleryPage: React.FC = () => {
 
   const categories = [
     "All",
-    ...Array.from(new Set(visibleItems.map((item) => item.category))),
+    "Food",
+    "Beverages",
+    "Desserts",
+    "Café Vibes",
   ];
 
-  const filteredImages = visibleItems.filter(
-    (item) => filter === "All" || item.category === filter
-  );
+  const filteredImages = visibleItems.filter((item) => {
+    if (filter === "All") return true;
+    if (filter === "Food") return item.category.toLowerCase().includes("bites") || item.category.toLowerCase().includes("table");
+    if (filter === "Beverages") return item.category.toLowerCase().includes("beverage") || item.category.toLowerCase().includes("coffee");
+    if (filter === "Desserts") return item.category.toLowerCase().includes("dessert") || item.category.toLowerCase().includes("cake") || item.category.toLowerCase().includes("bake");
+    if (filter === "Café Vibes") return item.category.toLowerCase().includes("interior") || item.category.toLowerCase().includes("vibe") || item.category.toLowerCase().includes("table");
+    return item.category === filter;
+  });
 
   const openLightbox = (index: number) => setLightboxIdx(index);
   const closeLightbox = () => setLightboxIdx(null);
@@ -37,147 +48,208 @@ export const GalleryPage: React.FC = () => {
   };
 
   return (
-    <div className="pt-24 sm:pt-28 pb-24 bg-[#F8F5ED] min-h-screen">
-      {/* Editorial Header */}
-      <section className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-10 sm:mb-12">
-        <span className="text-[11px] sm:text-xs font-semibold tracking-[0.3em] uppercase text-[#078F96] block mb-2">
-          Visual Journal
-        </span>
-        <h1 className="font-display text-4xl sm:text-6xl font-normal text-[#064F50] tracking-tight mb-3">
-          THE GALLERY
-        </h1>
-        <div className="w-12 h-0.5 bg-[#E8C45A] mx-auto mb-4" />
-        <p className="font-serif italic text-lg sm:text-2xl text-[#594235] max-w-lg mx-auto leading-relaxed">
-          &ldquo;Glimpses of daily bakes, warm corners, and shared moments.&rdquo;
-        </p>
+    <div className="bg-[#F5EFEB] text-[#162820]">
+      <AwningStrip />
+
+      {/* ==================================================
+          1. GALLERY HERO (Matching PDF Page 4)
+          ================================================== */}
+      <section className="py-12 sm:py-16 lg:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+            {/* Left: Headline & Tags */}
+            <div className="lg:col-span-7 space-y-5 text-left">
+              <span className="text-[10px] sm:text-xs font-semibold tracking-[0.34em] uppercase text-[#6E776F] block">
+                OUR GALLERY
+              </span>
+
+              <h1 className="font-serif text-5xl sm:text-6xl lg:text-[72px] font-normal text-[#0F382A] tracking-tight leading-[1.05]">
+                Moments<br />
+                <span className="italic font-light">That Stay.</span>
+              </h1>
+
+              <div className="w-12 h-0.5 bg-[#C99742]" />
+
+              {/* Tags (matching PDF Page 4) */}
+              <p className="text-xs sm:text-sm font-semibold tracking-[0.24em] uppercase text-[#6E776F]">
+                GOOD FOOD • GREAT COFFEE • HAPPIER DAYS
+              </p>
+
+              <p className="text-sm sm:text-base text-[#162820]/80 font-light leading-relaxed max-w-lg">
+                A visual diary of morning ovens, comforting conversations, handcrafted brews, and warm bakery counters.
+              </p>
+            </div>
+
+            {/* Right: Arched Cafe Interior Photo Cutout (matching PDF Page 4) */}
+            <div className="lg:col-span-5 flex justify-center">
+              <div className="relative rounded-t-full rounded-b-2xl overflow-hidden shadow-2xl border-4 border-white bg-[#082118] w-full max-w-sm aspect-4/5">
+                <img
+                  src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1200&q=80"
+                  alt="Cozy ambient cafe table and warm lights"
+                  className="w-full h-full object-cover transition-transform duration-1000 hover:scale-104"
+                />
+                <div className="absolute top-6 left-6 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/20 text-white">
+                  <span className="font-serif italic text-xs text-[#D4A359]">
+                    Good Food Better Days
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      {/* Category Filter Chips */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
-        <div className="overflow-x-auto no-scrollbar flex items-center justify-start sm:justify-center gap-2 py-1">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => {
-                setFilter(cat);
-                setLightboxIdx(null);
-              }}
-              className={`px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap transition-all duration-200 cursor-pointer ${
-                filter === cat
-                  ? "bg-[#064F50] text-[#F8F5ED] shadow-sm"
-                  : "bg-white text-[#594235] hover:text-[#064F50] hover:bg-[#EFE9DE] border border-[#E8DFD3]"
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      {/* Editorial Masonry Gallery Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {filteredImages.length === 0 ? (
-          <div className="text-center py-16 bg-white rounded-2xl border border-[#E8DFD3] max-w-sm mx-auto p-6">
-            <p className="font-display text-lg text-[#064F50]">No photos in this category yet</p>
-            <button
-              onClick={() => setFilter("All")}
-              className="mt-3 text-xs font-semibold uppercase tracking-wider text-[#078F96] underline cursor-pointer"
-            >
-              View All Photos
-            </button>
+      {/* ==================================================
+          2. CATEGORY FILTER BAR (Matching PDF Page 4)
+          ================================================== */}
+      <section className="sticky top-18 sm:top-20 z-30 bg-[#F5EFEB]/95 backdrop-blur-md border-y border-[#E2D9CC] py-3.5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="overflow-x-auto no-scrollbar flex items-center justify-start sm:justify-center gap-2 py-0.5">
+            {categories.map((cat) => {
+              const isActive = filter === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    setFilter(cat);
+                    setLightboxIdx(null);
+                  }}
+                  className={`px-5 py-2 rounded-full text-xs font-semibold tracking-wider whitespace-nowrap transition-all duration-200 cursor-pointer ${
+                    isActive
+                      ? "bg-[#0F382A] text-[#FAF6F0] shadow-sm"
+                      : "bg-[#FAF6F0] text-[#162820] hover:text-[#0F382A] hover:bg-[#E8DFD1] border border-[#E2D9CC]"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
           </div>
-        ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredImages.map((img, idx) => (
-              <div
-                key={img.id || img.url + idx}
-                onClick={() => openLightbox(idx)}
-                className="group relative rounded-2xl overflow-hidden cursor-pointer bg-[#EFE9DE] border border-[#E8DFD3] shadow-xs hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
-              >
-                <div className={`overflow-hidden ${img.aspect === "landscape" ? "aspect-16/11" : "aspect-4/5"}`}>
-                  <img
-                    src={img.url}
-                    alt={img.caption}
-                    className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700 ease-out"
-                    loading="lazy"
-                  />
-                </div>
+        </div>
+      </section>
 
-                {/* Hover Reveal Card */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
-                  <div className="flex items-center justify-between mb-1.5">
-                    <span className="text-[10px] font-semibold tracking-widest uppercase text-[#E8C45A] bg-black/40 backdrop-blur-xs px-2.5 py-0.5 rounded-full">
-                      {img.category}
-                    </span>
-                    <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-xs flex items-center justify-center text-white">
-                      <Eye className="w-4 h-4" />
-                    </div>
+      {/* ==================================================
+          3. MASONRY PHOTO GRID (Matching PDF Page 4)
+          ================================================== */}
+      <section className="py-14 sm:py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
+            {filteredImages.map((item, idx) => (
+              <div
+                key={item.id || idx}
+                onClick={() => openLightbox(idx)}
+                className="group relative rounded-2xl overflow-hidden aspect-4/3 bg-[#3D271D] border border-[#E2D9CC] shadow-2xs hover:shadow-xl transition-all duration-500 hover:-translate-y-1 cursor-pointer"
+              >
+                <img
+                  src={item.url}
+                  alt={item.caption}
+                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-108"
+                  loading="lazy"
+                />
+
+                {/* Subtle Editorial Overlay on Hover */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-5 text-white">
+                  <span className="text-[10px] uppercase tracking-[0.24em] text-[#D4A359] font-semibold block mb-1">
+                    {item.category}
+                  </span>
+                  <p className="font-serif text-lg text-white font-medium line-clamp-2 leading-snug">
+                    {item.caption}
+                  </p>
+                  <div className="mt-2.5 inline-flex items-center gap-1.5 text-xs text-white/90">
+                    <Eye className="w-3.5 h-3.5" />
+                    <span>View fullscreen</span>
                   </div>
-                  <h3 className="font-serif text-lg text-white font-medium drop-shadow-xs">
-                    {img.caption}
-                  </h3>
                 </div>
               </div>
             ))}
           </div>
-        )}
-      </div>
+        </div>
+      </section>
 
-      {/* Lightbox Modal */}
-      {lightboxIdx !== null && filteredImages[lightboxIdx] && (
+      {/* ==================================================
+          4. INSTAGRAM ANNOUNCEMENT STRIP (Matching PDF Page 5 top)
+          ================================================== */}
+      <section className="bg-[#FAF6F0] border-t border-[#E2D9CC] py-12 px-4 text-center">
+        <div className="max-w-2xl mx-auto space-y-4">
+          <div className="flex items-center justify-center gap-2">
+            <BotanicalSprig side="left" />
+            <h3 className="font-serif italic text-2xl font-bold text-[#0F382A]">
+              More Stories Coming Soon...
+            </h3>
+            <BotanicalSprig side="right" />
+          </div>
+          <p className="text-xs uppercase tracking-[0.22em] text-[#6E776F]">
+            STAY TUNED FOR MORE MOMENTS, MORE GOOD FOOD AND HAPPIER DAYS.
+          </p>
+          <div className="pt-2">
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#0F382A] text-white text-xs font-semibold uppercase tracking-[0.16em] hover:bg-[#184D3B] transition-colors shadow-sm"
+            >
+              <span>Follow Us on Instagram</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ==================================================
+          5. CELEBRATION CAKES BANNER (Matching PDF Page 7)
+          ================================================== */}
+      <CakesCelebrationBanner />
+
+      {/* ==================================================
+          6. LIGHTBOX MODAL
+          ================================================== */}
+      {lightboxIdx !== null && (
         <div
           className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 animate-hero-fade"
           onClick={closeLightbox}
         >
-          {/* Close button */}
           <button
             onClick={closeLightbox}
-            className="absolute top-5 right-5 text-white/80 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
-            aria-label="Close image viewer"
+            className="absolute top-5 right-5 text-white/80 hover:text-white p-2 rounded-full bg-white/10 transition-colors z-10"
+            aria-label="Close fullscreen"
           >
             <X className="w-6 h-6" />
           </button>
 
-          {/* Navigation Prev */}
           <button
             onClick={prevImage}
-            className="absolute left-4 sm:left-8 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
-            aria-label="Previous image"
+            className="absolute left-4 sm:left-8 text-white/80 hover:text-white p-3 rounded-full bg-white/10 transition-colors z-10"
+            aria-label="Previous photo"
           >
             <ChevronLeft className="w-6 h-6" />
           </button>
 
-          {/* Main Lightbox Image & Caption */}
-          <div
-            className="max-w-4xl max-h-[85vh] flex flex-col items-center"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <img
-              src={filteredImages[lightboxIdx].url}
-              alt={filteredImages[lightboxIdx].caption}
-              className="max-h-[72vh] max-w-full object-contain rounded-xl shadow-2xl"
-            />
-            <div className="mt-4 text-center text-white max-w-xl">
-              <span className="text-xs text-[#E8C45A] uppercase tracking-widest block mb-1">
-                {filteredImages[lightboxIdx].category}
-              </span>
-              <p className="font-serif text-lg font-light text-white/90">
-                {filteredImages[lightboxIdx].caption}
-              </p>
-              <span className="text-[11px] text-white/50 mt-1 block">
-                {lightboxIdx + 1} of {filteredImages.length}
-              </span>
-            </div>
-          </div>
-
-          {/* Navigation Next */}
           <button
             onClick={nextImage}
-            className="absolute right-4 sm:right-8 text-white/80 hover:text-white p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors cursor-pointer"
-            aria-label="Next image"
+            className="absolute right-4 sm:right-8 text-white/80 hover:text-white p-3 rounded-full bg-white/10 transition-colors z-10"
+            aria-label="Next photo"
           >
             <ChevronRight className="w-6 h-6" />
           </button>
+
+          <div
+            className="max-w-4xl max-h-[85vh] flex flex-col items-center justify-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img
+              src={filteredImages[lightboxIdx]?.url}
+              alt={filteredImages[lightboxIdx]?.caption}
+              className="max-w-full max-h-[72vh] object-contain rounded-xl shadow-2xl"
+            />
+            <div className="mt-4 text-center text-white space-y-1">
+              <span className="text-[10px] uppercase tracking-[0.2em] text-[#D4A359] font-semibold">
+                {filteredImages[lightboxIdx]?.category}
+              </span>
+              <p className="font-serif text-lg sm:text-xl text-white/95">
+                {filteredImages[lightboxIdx]?.caption}
+              </p>
+            </div>
+          </div>
         </div>
       )}
     </div>

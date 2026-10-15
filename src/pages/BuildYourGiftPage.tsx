@@ -23,6 +23,8 @@ import {
   Clock,
   ShieldCheck,
 } from "lucide-react";
+import { AwningStrip } from "../components/AwningStrip";
+import { CakesCelebrationBanner } from "../components/CakesCelebrationBanner";
 
 export const BuildYourGiftPage: React.FC = () => {
   const { giftingSettings, cafeInfo, addGiftingOrder } = useData();
@@ -239,13 +241,16 @@ export const BuildYourGiftPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#FAF7F2] min-h-screen text-[#262A28]">
+    <div className="bg-[#F5EFEB] min-h-screen text-[#162820]">
+      {/* Dental Awning Strip */}
+      <AwningStrip />
+
       {/* Top Header */}
-      <div className="bg-[#1C241E] text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-[#2E3B31]">
+      <div className="bg-[#0F382A] text-white py-12 px-4 sm:px-6 lg:px-8 border-b border-[#184D3B]">
         <div className="max-w-7xl mx-auto">
           <Link
             to="/gifting"
-            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#D8B774] hover:text-white transition-colors mb-4"
+            className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#C99742] hover:text-white transition-colors mb-4"
           >
             <ArrowLeft className="w-4 h-4" />
             <span>Back to Gifting Home</span>
@@ -253,13 +258,13 @@ export const BuildYourGiftPage: React.FC = () => {
 
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <span className="text-[11px] uppercase tracking-[0.25em] text-[#EAD8D8] font-semibold block mb-1">
+              <span className="text-[11px] uppercase tracking-[0.25em] text-[#C99742] font-semibold block mb-1">
                 Interactive Gifting Studio
               </span>
               <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold">
                 Build Your Own Gift
               </h1>
-              <p className="text-xs sm:text-sm text-[#E5DBCA]/80 font-light mt-2 max-w-xl">
+              <p className="text-xs sm:text-sm text-white/80 font-light mt-2 max-w-xl">
                 Choose a box, handpick bakery favourites, add wild blooms and pen a sweet personal card. We craft and pack it fresh.
               </p>
             </div>
@@ -272,9 +277,9 @@ export const BuildYourGiftPage: React.FC = () => {
                   onClick={() => setCurrentStep(step)}
                   className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full text-xs font-bold transition-all flex items-center justify-center cursor-pointer ${
                     currentStep === step
-                      ? "bg-[#D8B774] text-[#1C241E] ring-2 ring-white/30"
+                      ? "bg-[#C99742] text-[#0F382A] ring-2 ring-white/30"
                       : currentStep > step
-                      ? "bg-[#2E3B31] text-[#D8B774] border border-[#D8B774]/50"
+                      ? "bg-[#184D3B] text-[#C99742] border border-[#C99742]/50"
                       : "bg-white/10 text-white/50"
                   }`}
                   title={`Step ${step}`}
@@ -294,17 +299,17 @@ export const BuildYourGiftPage: React.FC = () => {
           <div className="lg:col-span-7 space-y-8">
             {/* ---------------- STEP 1: CHOOSE A BASE ---------------- */}
             {currentStep === 1 && (
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DFD3] shadow-xs space-y-6">
-                <div className="flex items-center justify-between border-b border-[#F2ECE1] pb-4">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E2D9CC] shadow-xs space-y-6">
+                <div className="flex items-center justify-between border-b border-[#FAF6F0] pb-4">
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8C4A52]">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0F382A]">
                       Step 1 of 5
                     </span>
-                    <h2 className="font-serif text-2xl font-bold text-[#1C241E]">
+                    <h2 className="font-serif text-2xl font-bold text-[#0F382A]">
                       Choose your gift base
                     </h2>
                   </div>
-                  <span className="text-xs text-[#767E7A] font-light">
+                  <span className="text-xs text-[#6E776F] font-light">
                     Packaging &amp; Presentation
                   </span>
                 </div>
@@ -318,11 +323,11 @@ export const BuildYourGiftPage: React.FC = () => {
                         onClick={() => setSelectedBase(base)}
                         className={`group relative rounded-2xl border p-4 cursor-pointer transition-all flex flex-col justify-between ${
                           isSelected
-                            ? "border-[#8C4A52] ring-2 ring-[#8C4A52]/20 bg-[#FAF7F2]"
-                            : "border-[#E8DFD3] hover:border-[#D5C7B5] bg-white"
+                            ? "border-[#0F382A] ring-2 ring-[#0F382A]/20 bg-[#FAF6F0]"
+                            : "border-[#E2D9CC] hover:border-[#0F382A] bg-white"
                         }`}
                       >
-                        <div className="aspect-16/10 rounded-xl overflow-hidden mb-3 bg-[#EFE9DE]">
+                        <div className="aspect-16/10 rounded-xl overflow-hidden mb-3 bg-[#FAF6F0]">
                           <img
                             src={base.image}
                             alt={base.name}
@@ -332,20 +337,20 @@ export const BuildYourGiftPage: React.FC = () => {
 
                         <div>
                           <div className="flex items-center justify-between">
-                            <h3 className="font-serif font-bold text-base text-[#1C241E]">
+                            <h3 className="font-serif font-bold text-base text-[#0F382A]">
                               {base.name}
                             </h3>
-                            <span className="font-bold text-xs text-[#755546]">
+                            <span className="font-serif font-bold text-xs text-[#0F382A]">
                               ₹{base.price}
                             </span>
                           </div>
-                          <p className="text-[11px] text-[#767E7A] mt-1 font-light leading-relaxed">
+                          <p className="text-[11px] text-[#6E776F] mt-1 font-light leading-relaxed">
                             {base.description}
                           </p>
                         </div>
 
                         {isSelected && (
-                          <div className="mt-3 flex items-center gap-1 text-[11px] font-bold text-[#8C4A52]">
+                          <div className="mt-3 flex items-center gap-1 text-[11px] font-bold text-[#0F382A]">
                             <Check className="w-3.5 h-3.5" />
                             <span>Selected</span>
                           </div>
@@ -358,7 +363,7 @@ export const BuildYourGiftPage: React.FC = () => {
                 <div className="pt-4 flex justify-end">
                   <button
                     onClick={() => setCurrentStep(2)}
-                    className="px-6 py-3 bg-[#1C241E] text-white hover:bg-[#26332A] rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-3 bg-[#0F382A] text-white hover:bg-[#184D3B] rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-sm"
                   >
                     <span>Next: Add Sweets</span>
                     <ArrowRight className="w-4 h-4" />
@@ -369,17 +374,17 @@ export const BuildYourGiftPage: React.FC = () => {
 
             {/* ---------------- STEP 2: ADD SOMETHING SWEET ---------------- */}
             {currentStep === 2 && (
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DFD3] shadow-xs space-y-6">
-                <div className="flex items-center justify-between border-b border-[#F2ECE1] pb-4">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E2D9CC] shadow-xs space-y-6">
+                <div className="flex items-center justify-between border-b border-[#FAF6F0] pb-4">
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8C4A52]">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0F382A]">
                       Step 2 of 5
                     </span>
-                    <h2 className="font-serif text-2xl font-bold text-[#1C241E]">
+                    <h2 className="font-serif text-2xl font-bold text-[#0F382A]">
                       Add something sweet
                     </h2>
                   </div>
-                  <span className="text-xs text-[#767E7A] font-light">
+                  <span className="text-xs text-[#6E776F] font-light">
                     {sweetsCount} treats selected
                   </span>
                 </div>
@@ -392,45 +397,45 @@ export const BuildYourGiftPage: React.FC = () => {
                         key={sweet.id}
                         className={`p-4 rounded-2xl border transition-all flex flex-col justify-between ${
                           qty > 0
-                            ? "border-[#8C4A52] bg-[#FAF7F2]"
-                            : "border-[#E8DFD3] bg-white hover:border-[#D5C7B5]"
+                            ? "border-[#0F382A] bg-[#FAF6F0]"
+                            : "border-[#E2D9CC] bg-white hover:border-[#0F382A]"
                         }`}
                       >
                         <div>
                           <div className="flex items-center justify-between">
-                            <h3 className="font-serif font-bold text-sm text-[#1C241E]">
+                            <h3 className="font-serif font-bold text-sm text-[#0F382A]">
                               {sweet.name}
                             </h3>
-                            <span className="font-bold text-xs text-[#755546]">
+                            <span className="font-serif font-bold text-xs text-[#0F382A]">
                               ₹{sweet.price}
                             </span>
                           </div>
-                          <p className="text-[11px] text-[#767E7A] mt-1 font-light">
+                          <p className="text-[11px] text-[#6E776F] mt-1 font-light">
                             {sweet.description}
                           </p>
                         </div>
 
                         {/* Stepper */}
-                        <div className="mt-4 flex items-center justify-between pt-2 border-t border-[#F2ECE1]">
-                          <span className="text-[11px] text-[#767E7A]">
+                        <div className="mt-4 flex items-center justify-between pt-2 border-t border-[#FAF6F0]">
+                          <span className="text-[11px] text-[#6E776F]">
                             {qty === 0 ? "Not added" : `${qty} in box`}
                           </span>
 
-                          <div className="flex items-center gap-2 bg-white border border-[#E8DFD3] rounded-lg p-1">
+                          <div className="flex items-center gap-2 bg-white border border-[#E2D9CC] rounded-lg p-1">
                             <button
                               onClick={() => handleSweetQtyChange(sweet.id, -1)}
                               disabled={qty === 0}
-                              className="p-1 text-[#575E5B] hover:text-[#1C241E] disabled:opacity-30 cursor-pointer"
+                              className="p-1 text-[#6E776F] hover:text-[#0F382A] disabled:opacity-30 cursor-pointer"
                               aria-label="Decrease quantity"
                             >
                               <Minus className="w-3.5 h-3.5" />
                             </button>
-                            <span className="w-4 text-center text-xs font-bold text-[#1C241E]">
+                            <span className="w-4 text-center text-xs font-bold text-[#0F382A]">
                               {qty}
                             </span>
                             <button
                               onClick={() => handleSweetQtyChange(sweet.id, 1)}
-                              className="p-1 text-[#575E5B] hover:text-[#1C241E] cursor-pointer"
+                              className="p-1 text-[#6E776F] hover:text-[#0F382A] cursor-pointer"
                               aria-label="Increase quantity"
                             >
                               <Plus className="w-3.5 h-3.5" />
@@ -445,14 +450,14 @@ export const BuildYourGiftPage: React.FC = () => {
                 <div className="pt-4 flex items-center justify-between">
                   <button
                     onClick={() => setCurrentStep(1)}
-                    className="px-5 py-2.5 border border-[#D5C7B5] rounded-full text-xs font-semibold uppercase tracking-wider text-[#59605C] hover:bg-[#FAF7F2] cursor-pointer"
+                    className="px-5 py-2.5 border border-[#E2D9CC] rounded-full text-xs font-semibold uppercase tracking-wider text-[#162820] hover:bg-[#FAF6F0] cursor-pointer"
                   >
                     ← Back
                   </button>
 
                   <button
                     onClick={() => setCurrentStep(3)}
-                    className="px-6 py-3 bg-[#1C241E] text-white hover:bg-[#26332A] rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-3 bg-[#0F382A] text-white hover:bg-[#184D3B] rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-sm"
                   >
                     <span>Next: Add Flowers</span>
                     <ArrowRight className="w-4 h-4" />
@@ -463,17 +468,17 @@ export const BuildYourGiftPage: React.FC = () => {
 
             {/* ---------------- STEP 3: ADD FLOWERS ---------------- */}
             {currentStep === 3 && (
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DFD3] shadow-xs space-y-6">
-                <div className="flex items-center justify-between border-b border-[#F2ECE1] pb-4">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E2D9CC] shadow-xs space-y-6">
+                <div className="flex items-center justify-between border-b border-[#FAF6F0] pb-4">
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8C4A52]">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0F382A]">
                       Step 3 of 5
                     </span>
-                    <h2 className="font-serif text-2xl font-bold text-[#1C241E]">
+                    <h2 className="font-serif text-2xl font-bold text-[#0F382A]">
                       Add fresh flowers
                     </h2>
                   </div>
-                  <span className="text-xs text-[#767E7A] font-light">
+                  <span className="text-xs text-[#6E776F] font-light">
                     Optional floral accent
                   </span>
                 </div>
@@ -487,31 +492,31 @@ export const BuildYourGiftPage: React.FC = () => {
                         onClick={() => setSelectedFlowers(flower)}
                         className={`p-4 rounded-2xl border cursor-pointer transition-all flex items-center justify-between gap-4 ${
                           isSelected
-                            ? "border-[#8C4A52] bg-[#FAF7F2] ring-1 ring-[#8C4A52]/20"
-                            : "border-[#E8DFD3] bg-white hover:border-[#D5C7B5]"
+                            ? "border-[#0F382A] bg-[#FAF6F0] ring-1 ring-[#0F382A]/20"
+                            : "border-[#E2D9CC] bg-white hover:border-[#0F382A]"
                         }`}
                       >
                         <div className="flex items-center gap-3">
                           <div
                             className={`w-5 h-5 rounded-full border flex items-center justify-center shrink-0 ${
                               isSelected
-                                ? "border-[#8C4A52] bg-[#8C4A52] text-white"
-                                : "border-[#CBBBA8]"
+                                ? "border-[#0F382A] bg-[#0F382A] text-white"
+                                : "border-[#E2D9CC]"
                             }`}
                           >
                             {isSelected && <Check className="w-3 h-3 stroke-2" />}
                           </div>
                           <div>
-                            <h3 className="font-serif font-bold text-sm sm:text-base text-[#1C241E]">
+                            <h3 className="font-serif font-bold text-sm sm:text-base text-[#0F382A]">
                               {flower.name}
                             </h3>
-                            <p className="text-[11px] text-[#767E7A] font-light">
+                            <p className="text-[11px] text-[#6E776F] font-light">
                               {flower.description}
                             </p>
                           </div>
                         </div>
 
-                        <span className="font-bold text-sm text-[#755546] shrink-0">
+                        <span className="font-serif font-bold text-sm text-[#0F382A] shrink-0">
                           {flower.price === 0 ? "Included" : `+₹${flower.price}`}
                         </span>
                       </div>
@@ -519,8 +524,8 @@ export const BuildYourGiftPage: React.FC = () => {
                   })}
                 </div>
 
-                <div className="p-3 bg-[#FAF7F2] rounded-xl border border-[#E8DFD3] text-[11px] text-[#755546] flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-[#8C4A52] shrink-0" />
+                <div className="p-3 bg-[#FAF6F0] rounded-xl border border-[#E2D9CC] text-[11px] text-[#6E776F] flex items-center gap-2">
+                  <Clock className="w-4 h-4 text-[#0F382A] shrink-0" />
                   <span>
                     Flower varieties depend on fresh morning availability. We handpick the freshest matching blooms.
                   </span>
@@ -529,14 +534,14 @@ export const BuildYourGiftPage: React.FC = () => {
                 <div className="pt-4 flex items-center justify-between">
                   <button
                     onClick={() => setCurrentStep(2)}
-                    className="px-5 py-2.5 border border-[#D5C7B5] rounded-full text-xs font-semibold uppercase tracking-wider text-[#59605C] hover:bg-[#FAF7F2] cursor-pointer"
+                    className="px-5 py-2.5 border border-[#E2D9CC] rounded-full text-xs font-semibold uppercase tracking-wider text-[#162820] hover:bg-[#FAF6F0] cursor-pointer"
                   >
                     ← Back
                   </button>
 
                   <button
                     onClick={() => setCurrentStep(4)}
-                    className="px-6 py-3 bg-[#1C241E] text-white hover:bg-[#26332A] rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-3 bg-[#0F382A] text-white hover:bg-[#184D3B] rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-sm"
                   >
                     <span>Next: Personal Note</span>
                     <ArrowRight className="w-4 h-4" />
@@ -547,17 +552,17 @@ export const BuildYourGiftPage: React.FC = () => {
 
             {/* ---------------- STEP 4: PERSONAL TOUCH & CARD ---------------- */}
             {currentStep === 4 && (
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DFD3] shadow-xs space-y-6">
-                <div className="flex items-center justify-between border-b border-[#F2ECE1] pb-4">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E2D9CC] shadow-xs space-y-6">
+                <div className="flex items-center justify-between border-b border-[#FAF6F0] pb-4">
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8C4A52]">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0F382A]">
                       Step 4 of 5
                     </span>
-                    <h2 className="font-serif text-2xl font-bold text-[#1C241E]">
+                    <h2 className="font-serif text-2xl font-bold text-[#0F382A]">
                       Add a personal touch
                     </h2>
                   </div>
-                  <span className="text-xs text-[#767E7A] font-light">
+                  <span className="text-xs text-[#6E776F] font-light">
                     Greeting card &amp; note
                   </span>
                 </div>
@@ -568,36 +573,36 @@ export const BuildYourGiftPage: React.FC = () => {
                     onClick={() => setCardType("handwritten")}
                     className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
                       cardType === "handwritten"
-                        ? "border-[#8C4A52] bg-[#FAF7F2] ring-1 ring-[#8C4A52]/20 font-bold"
-                        : "border-[#E8DFD3] text-[#59605C] hover:bg-[#FAF7F2]"
+                        ? "border-[#0F382A] bg-[#FAF6F0] ring-1 ring-[#0F382A]/20 font-bold"
+                        : "border-[#E2D9CC] text-[#6E776F] hover:bg-[#FAF6F0]"
                     }`}
                   >
-                    <span className="text-xs block text-[#1C241E]">Handwritten</span>
-                    <span className="text-[10px] text-[#8C4A52]">₹49</span>
+                    <span className="text-xs block text-[#0F382A]">Handwritten</span>
+                    <span className="text-[10px] text-[#0F382A]">₹49</span>
                   </button>
 
                   <button
                     onClick={() => setCardType("printed")}
                     className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
                       cardType === "printed"
-                        ? "border-[#8C4A52] bg-[#FAF7F2] ring-1 ring-[#8C4A52]/20 font-bold"
-                        : "border-[#E8DFD3] text-[#59605C] hover:bg-[#FAF7F2]"
+                        ? "border-[#0F382A] bg-[#FAF6F0] ring-1 ring-[#0F382A]/20 font-bold"
+                        : "border-[#E2D9CC] text-[#6E776F] hover:bg-[#FAF6F0]"
                     }`}
                   >
-                    <span className="text-xs block text-[#1C241E]">Printed Card</span>
-                    <span className="text-[10px] text-[#8C4A52]">₹29</span>
+                    <span className="text-xs block text-[#0F382A]">Printed Card</span>
+                    <span className="text-[10px] text-[#0F382A]">₹29</span>
                   </button>
 
                   <button
                     onClick={() => setCardType("none")}
                     className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
                       cardType === "none"
-                        ? "border-[#8C4A52] bg-[#FAF7F2] ring-1 ring-[#8C4A52]/20 font-bold"
-                        : "border-[#E8DFD3] text-[#59605C] hover:bg-[#FAF7F2]"
+                        ? "border-[#0F382A] bg-[#FAF6F0] ring-1 ring-[#0F382A]/20 font-bold"
+                        : "border-[#E2D9CC] text-[#6E776F] hover:bg-[#FAF6F0]"
                     }`}
                   >
-                    <span className="text-xs block text-[#1C241E]">No Card</span>
-                    <span className="text-[10px] text-[#767E7A]">₹0</span>
+                    <span className="text-xs block text-[#0F382A]">No Card</span>
+                    <span className="text-[10px] text-[#6E776F]">₹0</span>
                   </button>
                 </div>
 
@@ -605,7 +610,7 @@ export const BuildYourGiftPage: React.FC = () => {
                   <div className="space-y-4">
                     {/* Quick Prompts */}
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-[#755546] mb-2">
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F382A] mb-2">
                         Quick Message Ideas (Tap to paste):
                       </label>
                       <div className="flex flex-wrap gap-2">
@@ -613,7 +618,7 @@ export const BuildYourGiftPage: React.FC = () => {
                           <button
                             key={i}
                             onClick={() => setPersonalMessage(msg)}
-                            className="px-2.5 py-1 rounded-full bg-[#FAF7F2] border border-[#E8DFD3] text-[11px] text-[#59605C] hover:text-[#1C241E] hover:border-[#1C241E] transition-colors cursor-pointer text-left"
+                            className="px-2.5 py-1 rounded-full bg-[#FAF6F0] border border-[#E2D9CC] text-[11px] text-[#6E776F] hover:text-[#0F382A] hover:border-[#0F382A] transition-colors cursor-pointer text-left"
                           >
                             &ldquo;{msg}&rdquo;
                           </button>
@@ -623,7 +628,7 @@ export const BuildYourGiftPage: React.FC = () => {
 
                     {/* Textarea */}
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-[#755546] mb-1">
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F382A] mb-1">
                         Your Personal Message:
                       </label>
                       <textarea
@@ -631,13 +636,13 @@ export const BuildYourGiftPage: React.FC = () => {
                         value={personalMessage}
                         onChange={(e) => setPersonalMessage(e.target.value)}
                         placeholder="Write a sweet message to accompany your gift..."
-                        className="w-full px-4 py-3 rounded-2xl border border-[#E8DFD3] bg-[#FCFAF7] text-xs sm:text-sm text-[#1C241E] font-serif focus:outline-none focus:ring-1 focus:ring-[#8C4A52]"
+                        className="w-full px-4 py-3 rounded-2xl border border-[#E2D9CC] bg-[#FAF6F0] text-xs sm:text-sm text-[#162820] font-serif focus:outline-none focus:ring-1 focus:ring-[#0F382A]"
                       />
                     </div>
 
                     {/* Sender Name */}
                     <div>
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-[#755546] mb-1">
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F382A] mb-1">
                         Signed from (Your Name / Nickname):
                       </label>
                       <input
@@ -645,20 +650,20 @@ export const BuildYourGiftPage: React.FC = () => {
                         value={senderName}
                         onChange={(e) => setSenderName(e.target.value)}
                         placeholder="e.g. Rahul / With love, Mom"
-                        className="w-full px-4 py-2.5 rounded-xl border border-[#E8DFD3] bg-[#FCFAF7] text-xs text-[#1C241E]"
+                        className="w-full px-4 py-2.5 rounded-xl border border-[#E2D9CC] bg-[#FAF6F0] text-xs text-[#162820] focus:outline-none focus:ring-1 focus:ring-[#0F382A]"
                       />
                     </div>
 
                     {/* Live Preview of Note */}
-                    <div className="p-4 rounded-2xl bg-[#F7F2EC] border border-[#E8DFD3] relative">
-                      <span className="text-[10px] font-semibold uppercase tracking-widest text-[#8C4A52] block mb-2">
+                    <div className="p-4 rounded-2xl bg-[#FAF6F0] border border-[#E2D9CC] relative">
+                      <span className="text-[10px] font-semibold uppercase tracking-widest text-[#0F382A] block mb-2">
                         Card Preview
                       </span>
-                      <p className="font-serif italic text-sm text-[#1C241E] leading-relaxed">
+                      <p className="font-serif italic text-sm text-[#162820] leading-relaxed">
                         &ldquo;{personalMessage || "Your message will appear here..."}&rdquo;
                       </p>
                       {senderName && (
-                        <p className="text-xs font-serif font-semibold text-[#755546] mt-2 text-right">
+                        <p className="text-xs font-serif font-semibold text-[#0F382A] mt-2 text-right">
                           — {senderName}
                         </p>
                       )}
@@ -669,14 +674,14 @@ export const BuildYourGiftPage: React.FC = () => {
                 <div className="pt-4 flex items-center justify-between">
                   <button
                     onClick={() => setCurrentStep(3)}
-                    className="px-5 py-2.5 border border-[#D5C7B5] rounded-full text-xs font-semibold uppercase tracking-wider text-[#59605C] hover:bg-[#FAF7F2] cursor-pointer"
+                    className="px-5 py-2.5 border border-[#E2D9CC] rounded-full text-xs font-semibold uppercase tracking-wider text-[#162820] hover:bg-[#FAF6F0] cursor-pointer"
                   >
                     ← Back
                   </button>
 
                   <button
                     onClick={() => setCurrentStep(5)}
-                    className="px-6 py-3 bg-[#1C241E] text-white hover:bg-[#26332A] rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer"
+                    className="px-6 py-3 bg-[#0F382A] text-white hover:bg-[#184D3B] rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2 cursor-pointer shadow-sm"
                   >
                     <span>Next: Details &amp; Review</span>
                     <ArrowRight className="w-4 h-4" />
@@ -687,17 +692,17 @@ export const BuildYourGiftPage: React.FC = () => {
 
             {/* ---------------- STEP 5: RECIPIENT & FULFILMENT ---------------- */}
             {currentStep === 5 && (
-              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DFD3] shadow-xs space-y-6">
-                <div className="flex items-center justify-between border-b border-[#F2ECE1] pb-4">
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border border-[#E2D9CC] shadow-xs space-y-6">
+                <div className="flex items-center justify-between border-b border-[#FAF6F0] pb-4">
                   <div>
-                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#8C4A52]">
+                    <span className="text-[11px] font-semibold uppercase tracking-wider text-[#0F382A]">
                       Step 5 of 5
                     </span>
-                    <h2 className="font-serif text-2xl font-bold text-[#1C241E]">
+                    <h2 className="font-serif text-2xl font-bold text-[#0F382A]">
                       Fulfilment &amp; Recipient
                     </h2>
                   </div>
-                  <span className="text-xs text-[#767E7A] font-light">
+                  <span className="text-xs text-[#6E776F] font-light">
                     Final Details
                   </span>
                 </div>
@@ -705,7 +710,7 @@ export const BuildYourGiftPage: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {/* Recipient Name */}
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#755546] mb-1">
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F382A] mb-1">
                       Recipient Name (Optional):
                     </label>
                     <input
@@ -713,13 +718,13 @@ export const BuildYourGiftPage: React.FC = () => {
                       value={recipientName}
                       onChange={(e) => setRecipientName(e.target.value)}
                       placeholder="e.g. Priya Sharma"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFD3] bg-[#FCFAF7] text-xs text-[#1C241E]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2D9CC] bg-[#FAF6F0] text-xs text-[#162820] focus:outline-none focus:ring-1 focus:ring-[#0F382A]"
                     />
                   </div>
 
                   {/* Customer Phone */}
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#755546] mb-1">
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F382A] mb-1">
                       Your Contact Phone *
                     </label>
                     <input
@@ -727,13 +732,13 @@ export const BuildYourGiftPage: React.FC = () => {
                       value={customerPhone}
                       onChange={(e) => setCustomerPhone(e.target.value)}
                       placeholder="+91 98765 00000"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFD3] bg-[#FCFAF7] text-xs text-[#1C241E]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2D9CC] bg-[#FAF6F0] text-xs text-[#162820] focus:outline-none focus:ring-1 focus:ring-[#0F382A]"
                     />
                   </div>
 
                   {/* Fulfilment Method */}
                   <div className="sm:col-span-2">
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#755546] mb-2">
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F382A] mb-2">
                       Fulfilment Method:
                     </label>
                     <div className="grid grid-cols-2 gap-3">
@@ -742,12 +747,12 @@ export const BuildYourGiftPage: React.FC = () => {
                         onClick={() => setFulfilmentMethod("Pickup")}
                         className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
                           fulfilmentMethod === "Pickup"
-                            ? "border-[#1C241E] bg-[#FAF7F2] ring-1 ring-[#1C241E]/20 font-bold"
-                            : "border-[#E8DFD3] text-[#59605C] hover:bg-[#FAF7F2]"
+                            ? "border-[#0F382A] bg-[#FAF6F0] ring-1 ring-[#0F382A]/20 font-bold"
+                            : "border-[#E2D9CC] text-[#6E776F] hover:bg-[#FAF6F0]"
                         }`}
                       >
-                        <span className="text-xs block text-[#1C241E]">Cafe Pickup</span>
-                        <span className="text-[10px] text-[#767E7A]">Free</span>
+                        <span className="text-xs block text-[#0F382A]">Cafe Pickup</span>
+                        <span className="text-[10px] text-[#6E776F]">Free</span>
                       </button>
 
                       <button
@@ -756,12 +761,12 @@ export const BuildYourGiftPage: React.FC = () => {
                         disabled={!giftingSettings.deliveryEnabled}
                         className={`p-3 rounded-2xl border text-center transition-all cursor-pointer ${
                           fulfilmentMethod === "Delivery"
-                            ? "border-[#1C241E] bg-[#FAF7F2] ring-1 ring-[#1C241E]/20 font-bold"
-                            : "border-[#E8DFD3] text-[#59605C] hover:bg-[#FAF7F2]"
+                            ? "border-[#0F382A] bg-[#FAF6F0] ring-1 ring-[#0F382A]/20 font-bold"
+                            : "border-[#E2D9CC] text-[#6E776F] hover:bg-[#FAF6F0]"
                         }`}
                       >
-                        <span className="text-xs block text-[#1C241E]">Local Delivery</span>
-                        <span className="text-[10px] text-[#8C4A52]">
+                        <span className="text-xs block text-[#0F382A]">Local Delivery</span>
+                        <span className="text-[10px] text-[#0F382A]">
                           +₹{giftingSettings.deliveryFee || 49}
                         </span>
                       </button>
@@ -771,7 +776,7 @@ export const BuildYourGiftPage: React.FC = () => {
                   {/* Delivery Address if delivery */}
                   {fulfilmentMethod === "Delivery" && (
                     <div className="sm:col-span-2">
-                      <label className="block text-xs font-semibold uppercase tracking-wider text-[#755546] mb-1">
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F382A] mb-1">
                         Delivery Address (Local area only) *
                       </label>
                       <textarea
@@ -779,14 +784,14 @@ export const BuildYourGiftPage: React.FC = () => {
                         value={deliveryAddress}
                         onChange={(e) => setDeliveryAddress(e.target.value)}
                         placeholder="House / Flat No., Society / Street, Landmark"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFD3] bg-[#FCFAF7] text-xs text-[#1C241E]"
+                        className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2D9CC] bg-[#FAF6F0] text-xs text-[#162820] focus:outline-none focus:ring-1 focus:ring-[#0F382A]"
                       />
                     </div>
                   )}
 
                   {/* Requested Date & Time */}
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#755546] mb-1">
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F382A] mb-1">
                       Preferred Date:
                     </label>
                     <input
@@ -794,12 +799,12 @@ export const BuildYourGiftPage: React.FC = () => {
                       value={requestedDate}
                       onChange={(e) => setRequestedDate(e.target.value)}
                       placeholder="Today / Tomorrow / 15 Oct"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFD3] bg-[#FCFAF7] text-xs text-[#1C241E]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2D9CC] bg-[#FAF6F0] text-xs text-[#162820] focus:outline-none focus:ring-1 focus:ring-[#0F382A]"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#755546] mb-1">
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F382A] mb-1">
                       Preferred Time:
                     </label>
                     <input
@@ -807,13 +812,13 @@ export const BuildYourGiftPage: React.FC = () => {
                       value={requestedTime}
                       onChange={(e) => setRequestedTime(e.target.value)}
                       placeholder="e.g. 5:30 PM / Evening"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFD3] bg-[#FCFAF7] text-xs text-[#1C241E]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2D9CC] bg-[#FAF6F0] text-xs text-[#162820] focus:outline-none focus:ring-1 focus:ring-[#0F382A]"
                     />
                   </div>
 
                   {/* Special Instructions */}
                   <div className="sm:col-span-2">
-                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#755546] mb-1">
+                    <label className="block text-xs font-semibold uppercase tracking-wider text-[#0F382A] mb-1">
                       Special Instructions (Optional):
                     </label>
                     <input
@@ -821,7 +826,7 @@ export const BuildYourGiftPage: React.FC = () => {
                       value={specialNote}
                       onChange={(e) => setSpecialNote(e.target.value)}
                       placeholder="e.g. Don't reveal who it's from / Ring bell twice"
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E8DFD3] bg-[#FCFAF7] text-xs text-[#1C241E]"
+                      className="w-full px-3.5 py-2.5 rounded-xl border border-[#E2D9CC] bg-[#FAF6F0] text-xs text-[#162820] focus:outline-none focus:ring-1 focus:ring-[#0F382A]"
                     />
                   </div>
                 </div>
@@ -829,7 +834,7 @@ export const BuildYourGiftPage: React.FC = () => {
                 <div className="pt-4 flex items-center justify-between">
                   <button
                     onClick={() => setCurrentStep(4)}
-                    className="px-5 py-2.5 border border-[#D5C7B5] rounded-full text-xs font-semibold uppercase tracking-wider text-[#59605C] hover:bg-[#FAF7F2] cursor-pointer"
+                    className="px-5 py-2.5 border border-[#E2D9CC] rounded-full text-xs font-semibold uppercase tracking-wider text-[#162820] hover:bg-[#FAF6F0] cursor-pointer"
                   >
                     ← Back
                   </button>
@@ -840,15 +845,15 @@ export const BuildYourGiftPage: React.FC = () => {
 
           {/* Right Column: Live Gift Summary Card */}
           <div className="lg:col-span-5">
-            <div className="sticky top-24 bg-white rounded-3xl p-6 sm:p-8 border border-[#E8DFD3] shadow-md space-y-6">
-              <div className="flex items-center justify-between pb-4 border-b border-[#F2ECE1]">
+            <div className="sticky top-24 bg-white rounded-3xl p-6 sm:p-8 border border-[#E2D9CC] shadow-md space-y-6">
+              <div className="flex items-center justify-between pb-4 border-b border-[#FAF6F0]">
                 <div className="flex items-center gap-2">
-                  <Gift className="w-5 h-5 text-[#8C4A52]" />
-                  <h3 className="font-serif text-xl font-bold text-[#1C241E]">
+                  <Gift className="w-5 h-5 text-[#0F382A]" />
+                  <h3 className="font-serif text-xl font-bold text-[#0F382A]">
                     Your Gift Summary
                   </h3>
                 </div>
-                <span className="text-[10px] uppercase font-semibold tracking-wider text-[#755546] bg-[#FAF7F2] px-2 py-0.5 rounded-md border border-[#E8DFD3]">
+                <span className="text-[10px] uppercase font-semibold tracking-wider text-[#0F382A] bg-[#FAF6F0] px-2 py-0.5 rounded-md border border-[#E2D9CC]">
                   Live Preview
                 </span>
               </div>
@@ -858,30 +863,30 @@ export const BuildYourGiftPage: React.FC = () => {
                 {/* Base */}
                 <div className="flex items-center justify-between py-1">
                   <div>
-                    <span className="font-semibold text-[#1C241E] block">
+                    <span className="font-semibold text-[#0F382A] block">
                       {selectedBase.name}
                     </span>
-                    <span className="text-[11px] text-[#767E7A] font-light">
+                    <span className="text-[11px] text-[#6E776F] font-light">
                       Base packaging
                     </span>
                   </div>
-                  <span className="font-bold text-[#1C241E]">
+                  <span className="font-serif font-bold text-[#0F382A]">
                     ₹{selectedBase.price}
                   </span>
                 </div>
 
                 {/* Sweets */}
-                <div className="py-2 border-t border-[#F2ECE1]">
-                  <div className="flex items-center justify-between text-[#755546] font-semibold mb-1">
+                <div className="py-2 border-t border-[#FAF6F0]">
+                  <div className="flex items-center justify-between text-[#0F382A] font-semibold mb-1">
                     <span>Bakery Sweets ({sweetsCount})</span>
-                    <span>₹{sweetsPrice}</span>
+                    <span className="font-serif font-bold">₹{sweetsPrice}</span>
                   </div>
                   {sweetsCount === 0 ? (
                     <p className="text-[11px] text-amber-700 italic">
                       No sweets added yet
                     </p>
                   ) : (
-                    <ul className="space-y-1 text-[11px] text-[#59605C] font-light pl-2">
+                    <ul className="space-y-1 text-[11px] text-[#6E776F] font-light pl-2">
                       {Object.entries(selectedSweets).map(([id, qty]) => {
                         const sweet = GIFT_SWEET_OPTIONS.find((s: any) => s.id === id);
                         if (!sweet) return null;
@@ -890,7 +895,7 @@ export const BuildYourGiftPage: React.FC = () => {
                             <span>
                               {qty}x {sweet.name}
                             </span>
-                            <span>₹{sweet.price * qty}</span>
+                            <span className="font-serif">₹{sweet.price * qty}</span>
                           </li>
                         );
                       })}
@@ -899,31 +904,31 @@ export const BuildYourGiftPage: React.FC = () => {
                 </div>
 
                 {/* Flowers */}
-                <div className="flex items-center justify-between py-2 border-t border-[#F2ECE1]">
+                <div className="flex items-center justify-between py-2 border-t border-[#FAF6F0]">
                   <div>
-                    <span className="font-semibold text-[#1C241E] block">
+                    <span className="font-semibold text-[#0F382A] block">
                       {selectedFlowers.name}
                     </span>
-                    <span className="text-[11px] text-[#767E7A] font-light">
+                    <span className="text-[11px] text-[#6E776F] font-light">
                       Fresh floral bunch
                     </span>
                   </div>
-                  <span className="font-bold text-[#1C241E]">
+                  <span className="font-serif font-bold text-[#0F382A]">
                     {selectedFlowers.price === 0 ? "₹0" : `₹${selectedFlowers.price}`}
                   </span>
                 </div>
 
                 {/* Card */}
                 {cardType !== "none" && (
-                  <div className="py-2 border-t border-[#F2ECE1]">
+                  <div className="py-2 border-t border-[#FAF6F0]">
                     <div className="flex items-center justify-between">
-                      <span className="font-semibold text-[#1C241E]">
+                      <span className="font-semibold text-[#0F382A]">
                         {cardType === "handwritten" ? "Handwritten Note" : "Printed Card"}
                       </span>
-                      <span className="font-bold text-[#1C241E]">₹{cardPrice}</span>
+                      <span className="font-serif font-bold text-[#0F382A]">₹{cardPrice}</span>
                     </div>
                     {personalMessage && (
-                      <p className="text-[10px] text-[#8C4A52] font-serif italic truncate mt-0.5">
+                      <p className="text-[10px] text-[#0F382A] font-serif italic truncate mt-0.5">
                         &ldquo;{personalMessage}&rdquo;
                       </p>
                     )}
@@ -931,24 +936,24 @@ export const BuildYourGiftPage: React.FC = () => {
                 )}
 
                 {/* Fulfilment details */}
-                <div className="py-2 border-t border-[#F2ECE1] space-y-1 text-[11px] text-[#767E7A]">
+                <div className="py-2 border-t border-[#FAF6F0] space-y-1 text-[11px] text-[#6E776F]">
                   <div className="flex justify-between">
                     <span>Fulfilment:</span>
-                    <span className="font-medium text-[#1C241E]">
+                    <span className="font-medium text-[#0F382A]">
                       {fulfilmentMethod}
                     </span>
                   </div>
                   {fulfilmentMethod === "Delivery" && (
                     <div className="flex justify-between">
                       <span>Delivery Fee:</span>
-                      <span className="font-medium text-[#1C241E]">
+                      <span className="font-medium font-serif text-[#0F382A]">
                         ₹{deliveryFee}
                       </span>
                     </div>
                   )}
                   <div className="flex justify-between">
                     <span>Requested Time:</span>
-                    <span className="font-medium text-[#1C241E]">
+                    <span className="font-medium text-[#0F382A]">
                       {requestedDate}, {requestedTime}
                     </span>
                   </div>
@@ -956,26 +961,26 @@ export const BuildYourGiftPage: React.FC = () => {
               </div>
 
               {/* Total Calculation */}
-              <div className="pt-4 border-t-2 border-[#1C241E] flex items-center justify-between">
+              <div className="pt-4 border-t-2 border-[#0F382A] flex items-center justify-between">
                 <div>
-                  <span className="text-xs uppercase font-semibold tracking-wider text-[#755546]">
+                  <span className="text-xs uppercase font-semibold tracking-wider text-[#0F382A]">
                     Estimated Total
                   </span>
-                  <p className="text-[10px] text-[#767E7A]">
+                  <p className="text-[10px] text-[#6E776F]">
                     Subject to morning flower availability
                   </p>
                 </div>
                 <div className="text-right">
-                  <span className="font-serif text-2xl font-bold text-[#1C241E]">
+                  <span className="font-serif text-2xl font-bold text-[#0F382A]">
                     ₹{total}
                   </span>
                 </div>
               </div>
 
               {/* Disclaimers */}
-              <div className="p-3 bg-[#FAF7F2] rounded-xl border border-[#E8DFD3] text-[10px] text-[#755546] space-y-1">
-                <div className="flex items-center gap-1 font-semibold">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+              <div className="p-3 bg-[#FAF6F0] rounded-xl border border-[#E2D9CC] text-[10px] text-[#6E776F] space-y-1">
+                <div className="flex items-center gap-1 font-semibold text-[#0F382A]">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#0F382A] shrink-0" />
                   <span>Cafe Order Confirmation</span>
                 </div>
                 <p className="font-light leading-relaxed">
@@ -987,7 +992,7 @@ export const BuildYourGiftPage: React.FC = () => {
               <div className="space-y-2.5 pt-2">
                 <button
                   onClick={handleContinueOnWhatsApp}
-                  className="w-full py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white rounded-full text-xs font-bold uppercase tracking-wider transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <MessageCircle className="w-4 h-4 fill-white" />
                   <span>Continue on WhatsApp →</span>
@@ -995,9 +1000,9 @@ export const BuildYourGiftPage: React.FC = () => {
 
                 <button
                   onClick={handleSaveToBag}
-                  className="w-full py-3 bg-[#FAF7F2] hover:bg-[#EFE9DE] text-[#1C241E] border border-[#E8DFD3] rounded-xl text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-3 bg-[#0F382A] hover:bg-[#184D3B] text-white border border-[#0F382A] rounded-full text-xs font-semibold uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                 >
-                  <ShoppingBag className="w-4 h-4 text-[#8C4A52]" />
+                  <ShoppingBag className="w-4 h-4 text-[#C99742]" />
                   <span>Add Gift to Order Bag</span>
                 </button>
               </div>
@@ -1005,6 +1010,9 @@ export const BuildYourGiftPage: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Cakes & Celebration Callout Banner */}
+      <CakesCelebrationBanner />
     </div>
   );
 };

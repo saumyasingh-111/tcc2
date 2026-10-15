@@ -19,6 +19,7 @@ import { VisitUsPage } from "./pages/VisitUsPage";
 import { GiftingPage } from "./pages/GiftingPage";
 import { BuildYourGiftPage } from "./pages/BuildYourGiftPage";
 import { GiftDetailPage } from "./pages/GiftDetailPage";
+import { OrderPage } from "./pages/OrderPage";
 
 // Admin Portal Pages
 import { AdminLoginPage } from "./pages/admin/AdminLoginPage";
@@ -41,7 +42,7 @@ const CustomerLayout: React.FC<{ children: React.ReactNode }> = ({ children }) =
   const { settings } = useData();
 
   return (
-    <div className="min-h-screen bg-[#F8F5ED] text-[#2C201A] flex flex-col font-sans selection:bg-[#078F96]/20 selection:text-[#064F50]">
+    <div className="min-h-screen bg-[#F5EFEB] text-[#162820] flex flex-col font-sans selection:bg-[#0F382A]/20 selection:text-[#0F382A]">
       {settings.isMaintenanceMode && (
         <div className="bg-[#755546] text-[#FAF7F2] text-xs text-center py-2 px-4 font-medium tracking-wide">
           Notice: The cafe menu is currently in maintenance mode. Please call or WhatsApp us for instant assistance.
@@ -91,6 +92,14 @@ export function App() {
                   element={
                     <CustomerLayout>
                       <MenuPage />
+                    </CustomerLayout>
+                  }
+                />
+                <Route
+                  path="/order"
+                  element={
+                    <CustomerLayout>
+                      <OrderPage />
                     </CustomerLayout>
                   }
                 />
